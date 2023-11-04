@@ -1,0 +1,81 @@
+﻿@model GestaoVendasMVC.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-cerulean.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="login-wrap">
+    <form asp-controller="Home" asp-action="Login" method="post">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Entrar</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrar</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">E-mail</label>
+                        <input id="user" type="text" class="input" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Senha</label>
+                        <input id="pass" type="password" class="input" data-type="password" asp-for="Senha">
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Me Mantenha Conectado</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Entrar">
+                    </div>
+                    @{
+                        try
+                        {
+                            var Erro = TempData["LoginError"].ToString();
+                            <h5 class="text-danger">@Erro</h5>
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Esqueceu sua Senha?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="pass" class="label">Nome</label>
+                        <input id="pass" type="text" class="input">
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">E-mail</label>
+                        <input id="pass" type="text" class="input">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Senha</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repetir Senha</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Create">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Já Possui Registro?</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
