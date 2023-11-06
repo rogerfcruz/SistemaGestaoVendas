@@ -42,6 +42,7 @@ namespace GestaoVendasMVC
                     builder.MigrationsAssembly("GestaoVendasMVC")));
 
             services.AddScoped<LoginService>();
+            services.AddScoped<ClienteService>();
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
