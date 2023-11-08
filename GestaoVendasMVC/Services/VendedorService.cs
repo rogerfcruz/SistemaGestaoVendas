@@ -5,34 +5,34 @@ using System.Linq;
 
 namespace GestaoVendasMVC.Services
 {
-    public class ClienteService
+    public class VendedorService
     {
         private readonly AppDBContext _dbContext;
 
-        public ClienteService(AppDBContext appDBContext)
+        public VendedorService(AppDBContext appDBContext)
         {
             _dbContext = appDBContext;
         }
 
-        public List<ClienteModel> FindAll()
+        public List<VendedorModel> FindAll()
         {
-            return _dbContext.Cliente.ToList();
+            return _dbContext.Vendedor.ToList();
         }
 
-        public ClienteModel FindById(int id)
+        public VendedorModel FindById(int id)
         {
-            return _dbContext.Cliente.FirstOrDefault(x => x.Id == id);
+            return _dbContext.Vendedor.FirstOrDefault(x => x.Id == id);
         }
 
-        public void Create(ClienteModel obj)
+        public void Create(VendedorModel obj)
         {
             _dbContext.Add(obj);
             _dbContext.SaveChanges();
         }
 
-        public void Edit(ClienteModel obj)
+        public void Edit(VendedorModel obj)
         {
-            if(_dbContext.Cliente.Any(x => x.Id == obj.Id))
+            if(_dbContext.Vendedor.Any(x => x.Id == obj.Id))
             {
                 _dbContext.Update(obj);
                 _dbContext.SaveChanges();
@@ -40,7 +40,7 @@ namespace GestaoVendasMVC.Services
         }
         public void Delete(int id)
         {
-            var obj = _dbContext.Cliente.Find(id);
+            var obj = _dbContext.Vendedor.Find(id);
             if (obj != null)
             {
                 _dbContext.Remove(obj);

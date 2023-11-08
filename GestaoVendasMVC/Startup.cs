@@ -43,6 +43,7 @@ namespace GestaoVendasMVC
 
             services.AddScoped<LoginService>();
             services.AddScoped<ClienteService>();
+            services.AddScoped<VendedorService>();
             services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }

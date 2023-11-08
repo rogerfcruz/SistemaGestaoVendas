@@ -11,5 +11,6 @@ namespace GestaoVendasMVC.Data
 
         public DbSet<LoginModel> Login { get; set; }
         public DbSet<ClienteModel> Cliente { get; set; }
+        public DbSet<VendedorModel> Vendedor { get; set; }
     }
 }

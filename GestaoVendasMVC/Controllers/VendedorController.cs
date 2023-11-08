@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoVendasMVC.Controllers
 {
-    public class ClienteController : Controller
+    public class VendedorController : Controller
     {
-        private readonly ClienteService _service;
+        private readonly VendedorService _service;
 
-        public ClienteController(ClienteService obj)
+        public VendedorController(VendedorService obj)
         {
             _service = obj;
         }
@@ -27,7 +27,7 @@ namespace GestaoVendasMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ClienteModel obj)
+        public IActionResult Create(VendedorModel obj)
         {
             if (ModelState.IsValid)
             {
@@ -46,7 +46,7 @@ namespace GestaoVendasMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, ClienteModel obj)
+        public IActionResult Edit(int id, VendedorModel obj)
         {
             if (ModelState.IsValid)
             {
